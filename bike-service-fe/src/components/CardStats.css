@@ -1,0 +1,49 @@
+.card-stats {
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 240ms ease-out forwards;
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+
+.card-stats:hover {
+  transform: translateY(-2px);
+}
+
+.card-stats__accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 14px 0 0 14px;
+}
+
+.card-stats__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-stats__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+}
+
+.card-stats__value {
+  font-size: 32px;
+  margin-top: 12px;
+  line-height: 1;
+}
+
+.card-stats__sub {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}

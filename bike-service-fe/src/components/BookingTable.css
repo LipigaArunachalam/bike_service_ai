@@ -1,0 +1,38 @@
+.booking-table-wrapper {
+  padding: 0;
+  overflow: hidden;
+}
+
+.table-header-row {
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  color: var(--text-secondary);
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.empty-illustration {
+  width: 80px;
+  height: 80px;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.booking-table-wrapper .pagination {
+  padding: var(--space-4) var(--space-6);
+}

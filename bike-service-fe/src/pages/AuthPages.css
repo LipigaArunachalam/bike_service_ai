@@ -1,0 +1,111 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-app);
+  background: radial-gradient(circle at center, rgba(59,130,246,0.06) 0%, var(--bg-app) 70%);
+  padding: var(--space-4);
+}
+
+.auth-card {
+  max-width: 440px;
+  width: 100%;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.logo-group.large {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.logo-group.large .logo-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.logo-group.large .logo-text {
+  font-size: 24px;
+}
+
+.auth-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+}
+
+.auth-subtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: var(--space-2);
+}
+
+.auth-error-banner {
+  background: rgba(239,68,68,0.12);
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 8px;
+  padding: var(--space-3);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-danger);
+  font-size: 13px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  transition: color 200ms ease;
+}
+
+.password-toggle:hover {
+  color: var(--text-primary);
+}
+
+.auth-footer {
+  margin-top: var(--space-8);
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.auth-link {
+  color: var(--accent-blue);
+  font-weight: 500;
+  transition: opacity 200ms ease;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
