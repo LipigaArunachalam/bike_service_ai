@@ -63,6 +63,39 @@ export default function AdminPanel() {
       setDeleteId(null);
     }
   };
+  const handleExport = () => {
+    if (filteredBookings.length === 0) {
+      addToast('warning', 'No data to export', 'There are no bookings matching your current filters.');
+      return;
+    }
+
+    const headers = ['User Name', 'User Email', 'Service', 'Service Date', 'Date Booked', 'Status', 'Notes'];
+    const csvRows = [
+      headers.join(','),
+      ...filteredBookings.map(b => [
+        `"${b.userName.replace(/"/g, '""')}"`,
+        `"${b.userEmail.replace(/"/g, '""')}"`,
+        `"${b.service.replace(/"/g, '""')}"`,
+        `"${b.serviceDate}"`,
+        `"${b.dateBooked}"`,
+        `"${b.status}"`,
+        `"${b.notes.replace(/"/g, '""')}"`
+      ].join(','))
+    ];
+
+    const csvContent = csvRows.join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', `bookings_export_${new Date().toISOString().split('T')[0]}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    addToast('success', 'Export Successful', `Exported ${filteredBookings.length} bookings to CSV.`);
+  };
 
   const columns = [
     { 
@@ -162,7 +195,11 @@ export default function AdminPanel() {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <button className="btn-ghost export-btn">
+          <button 
+            className="btn-ghost export-btn"
+            onClick={handleExport}
+            title="Export to CSV"
+          >
             <Download size={16} />
             <span className="desktop-only">Export</span>
           </button>
